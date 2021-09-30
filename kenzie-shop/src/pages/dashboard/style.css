@@ -1,0 +1,13 @@
+.market-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width:768px) {
+    .market-items{
+        flex-direction: row;
+    }
+}
