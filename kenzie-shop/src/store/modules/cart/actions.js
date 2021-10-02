@@ -3,7 +3,7 @@ export const addToCart = (product) =>({
     product
 })
 
-export const removeFromCart = ( id ) =>({
+export const removeFromCart = ( newList ) =>({
     type: "@cart/remove",
-    id
+    newList
 }) 

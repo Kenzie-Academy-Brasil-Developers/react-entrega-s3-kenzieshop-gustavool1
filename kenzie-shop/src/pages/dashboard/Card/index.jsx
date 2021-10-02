@@ -1,10 +1,14 @@
 import { useDispatch } from 'react-redux'
-import { addToCartThunk } from '../../../store/modules/cart/thunk'
+import { addToCartThunk, removeFromCartThunk } from '../../../store/modules/cart/thunk'
 import './style.css'
-const Card = ({ item }) =>{
+const Card = ({ item, isRemovable}) =>{
     const dispatch = useDispatch()
-    const handleClick = () =>{
+    const handleClickAdd = () =>{
         dispatch(addToCartThunk(item))
+    }
+    const handleClickRemove = () =>{
+        
+        dispatch(removeFromCartThunk(item))
     }
     return (
         <div className='card-container'>
@@ -12,7 +16,14 @@ const Card = ({ item }) =>{
                 <img src = {item.img} alt= ''/>
                 <p>{item.name}</p>
                 <p>R${item.price}</p>
-                <button onClick={handleClick}>Adicionar ao carrinho</button>
+                { isRemovable ?
+                (
+                    <button onClick={handleClickRemove}>Remover do  carrinho</button>
+                )
+                :(
+                    <button onClick={handleClickAdd}>Adicionar ao carrinho</button>
+                )}
+                
             </div>
         </div>
     )

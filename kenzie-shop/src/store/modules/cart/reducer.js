@@ -1,5 +1,5 @@
 const cartReducer = (state = [], action) =>{
-    console.log(action)
+    console.log( action)
     switch(action.type){
         case "@cart/ADD":
             
@@ -7,9 +7,9 @@ const cartReducer = (state = [], action) =>{
             return [...state, product]
 
         case "@cart/remove":
-            const { id } = action;
-            const newList = state.filter((product) => product.id !== id)
-            return newList
+            const { newList } = action
+
+            return [...newList]
         default:
             return state
     }

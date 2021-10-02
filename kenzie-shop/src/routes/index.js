@@ -5,11 +5,9 @@ const Router = () => {
     return(
         <Switch>
             <Route exact path='/'>
-                dasdasd
-            </Route>
-            <Route exact path='/dashboard'>
                 <Dashboard/>
             </Route>
+            
             <Route exact path='/cart'>
                 <Cart/>
             </Route>

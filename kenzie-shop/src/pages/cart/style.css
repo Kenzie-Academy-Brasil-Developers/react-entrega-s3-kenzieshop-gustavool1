@@ -4,11 +4,8 @@
     align-items: center;
     flex-wrap: wrap;
     align-items: center;
-    border: 1px solid white;
 }
-.cart-container img{
-    width: 100px;
-}
+
 .cart-container h1{
     width: 100%;
     text-align: center;

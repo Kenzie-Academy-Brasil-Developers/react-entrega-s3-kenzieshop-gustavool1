@@ -1,26 +1,21 @@
 import { useDispatch, useSelector } from "react-redux"
 import { removeFromCart } from '../../store/modules/cart/actions'
+import Card from "../dashboard/Card"
 import Header from "../dashboard/header"
 import './style.css'
+import Total from "./Total"
 const Cart = ( ) =>{
-    const cartItems = useSelector((state)=>state.cart)
-    const dispatch = useDispatch()
-    const handleDelete = (id) =>{
-        dispatch(removeFromCart(id))
-    }
+     const cartItems = JSON.parse(localStorage.getItem('@cart'))
+    const cartItemss = useSelector((state)=>state)
+    console.log(cartItemss)
     return (
         <>
         <Header/>
         <div className='cart-container'>
-            
+            <Total/>
             <h1>Carrinho</h1>
-            {cartItems.map((item)=>(
-                <div className='cart-item' key={item.id}>
-                    <img src={item.img} alt="" />
-                    <p>{item.name}</p>
-                    <p>Preço: R${item.price}</p>
-                    <button onClick={()=>handleDelete(item.id)}>Deletar</button>
-                </div>
+            {cartItems && cartItems.map((item)=>(
+                <Card key={item.id}item={item} isRemovable={true}/>
             ))}
         </div>
         </>
